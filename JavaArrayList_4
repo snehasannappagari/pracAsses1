@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc=new Scanner(System.in);
+
+    int tot=sc.nextInt();
+
+    ArrayList<ArrayList<Integer>> mainlist=new ArrayList<>();
+
+    for(int j=0;j<tot;j++)
+    {
+     int size=sc.nextInt();
+     ArrayList<Integer> list=new ArrayList();
+
+     for(int k=0;k<size;k++)
+       {
+          int items=sc.nextInt();
+          list.add(items);
+       }
+      mainlist.add(list);
+   }
+
+    int totalprint=sc.nextInt();
+    for(int l=0;l<totalprint;l++)
+    {
+      int r=sc.nextInt();
+      int colu=sc.nextInt();
+      try
+       {
+       System.out.println(mainlist.get(r-1).get(colu-1));
+       }
+      catch(Exception E)
+      {
+      System.out.println("ERROR!");
+      }
+    }
+    sc.close();
+    }
+}
