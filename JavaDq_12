@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class test {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        final Deque<Integer> dq = new ArrayDeque<Integer>();
+        final Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        final int s = in.nextInt();
+        final int t = in.nextInt();
+
+        int r = 0;
+        for (int q = 0; q < s; q++) {
+            final int num = in.nextInt();
+            dq.addLast(num);
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num).intValue() + 1);
+            } else {
+                map.put(num, 1);
+            }
+
+            if (dq.size() == t + 1) {
+                final int k = dq.removeFirst();
+                final int u = map.get(k);
+                if (u == 1) {
+                    map.remove(k);
+                } else {
+                    map.put(k, u - 1);
+                }
+            }
+
+            final int count = map.size();
+            if (count > r) { r = count; }
+        }
+        System.out.println(r);
+    }
+}
