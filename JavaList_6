@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        final Scanner inp = new Scanner(System.in);
+        final int size = inp.nextInt();
+        final List<Integer> list = new LinkedList<>();
+        for (int a = 0; a < size; a++) {
+            list.add(inp.nextInt());
+        }
+        final int commandCount = inp.nextInt();
+        for (int a = 0; a < commandCount; a++) {
+            inp.nextLine();
+            String cmd = inp.nextLine();           
+            if (cmd.equals("Insert")) {
+                int ind = inp.nextInt();
+                int val = inp.nextInt();
+                list.add(ind, val);
+            } else {
+                int ind = inp.nextInt();
+                list.remove(ind);
+            }
+        }
+        int cnt = 0;
+        for (Integer no : list) {
+            System.out.print(no);
+            if (cnt != list.size() - 1) {
+                System.out.print(" ");
+            }
+            cnt++;
+        }
+    }
+        
+    }
