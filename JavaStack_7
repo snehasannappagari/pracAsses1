@@ -1,0 +1,36 @@
+import java.util.*;
+class Solution{
+	
+	public static void main(String []argh)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		while (sc.hasNext()) {
+			String input=sc.next();
+            //Complete the code
+            Stack<String> par= new Stack<String>();
+    for (String s : input.split("")) {
+        if (!s.isEmpty()) { 
+            if (par.isEmpty()) {
+                par.push(s);
+            } else {
+                String t = par.peek();
+                if (s.equals("}") && t.equals("{")
+                || (s.equals("]") && t.equals("[")
+                ||(s.equals(")") && t.equals("(")))) {
+                par.pop();
+                } else {
+                    par.push(s);
+                }
+            }
+        }
+    }
+    String to = (par.isEmpty()) ? "true" : "false";
+    System.out.println(to);
+		}
+		
+	}
+}
+
+
+
